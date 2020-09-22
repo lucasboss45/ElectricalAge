@@ -3154,6 +3154,14 @@ public class Eln {
             desc.setGhostGroup(g);
             transparentNodeItem.addDescriptor(subId + (id << 6), desc);
         }
+        {
+            subId = 20;
+            AirRaidSirenDescriptor desc = new AirRaidSirenDescriptor(
+                TR_NAME(Type.NONE, "Air Raid Siren"),
+                obj.getObj("Starter_Motor")
+            );
+            transparentNodeItem.addDescriptor(subId + ( id << 6), desc);
+        }
     }
 
     public ArrayList<ItemStack> furnaceList = new ArrayList<ItemStack>();
