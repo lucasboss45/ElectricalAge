@@ -10,10 +10,7 @@ import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
-import mods.eln.block.ArcClayBlock;
-import mods.eln.block.ArcClayItemBlock;
-import mods.eln.block.ArcMetalBlock;
-import mods.eln.block.ArcMetalItemBlock;
+import mods.eln.block.*;
 import mods.eln.cable.CableRenderDescriptor;
 import mods.eln.client.ClientKeyHandler;
 import mods.eln.client.SoundLoader;
@@ -243,6 +240,7 @@ public class Eln {
     public static LightBlock lightBlock;
     public static ArcClayBlock arcClayBlock;
     public static ArcMetalBlock arcMetalBlock;
+    public static SolidTestBlock solidTestBlock;
 
     public static SixNodeItem sixNodeItem;
     public static TransparentNodeItem transparentNodeItem;
@@ -531,6 +529,7 @@ public class Eln {
 
         arcClayBlock = (ArcClayBlock) new ArcClayBlock();
         arcMetalBlock = (ArcMetalBlock) new ArcMetalBlock();
+        solidTestBlock = (SolidTestBlock) new SolidTestBlock();
 
         sharedItem = (SharedItem) new SharedItem()
             .setCreativeTab(creativeTab).setMaxStackSize(64)
@@ -564,6 +563,7 @@ public class Eln {
         GameRegistry.registerBlock(oreBlock, OreItem.class, "Eln.Ore");
         GameRegistry.registerBlock(arcClayBlock, ArcClayItemBlock.class, "Eln.arc_clay_block");
         GameRegistry.registerBlock(arcMetalBlock, ArcMetalItemBlock.class, "Eln.arc_metal_block");
+        GameRegistry.registerBlock(solidTestBlock, SolidTestItemBlock.class, "Eln.solid_test_block");
         TileEntity.addMapping(TransparentNodeEntity.class, "TransparentNodeEntity");
         TileEntity.addMapping(TransparentNodeEntityWithFluid.class, "TransparentNodeEntityWF");
         // TileEntity.addMapping(TransparentNodeEntityWithSiededInv.class, "TransparentNodeEntityWSI");
@@ -682,6 +682,7 @@ public class Eln {
 
         OreDictionary.registerOre("blockAluminum", arcClayBlock);
         OreDictionary.registerOre("blockSteel", arcMetalBlock);
+        OreDictionary.registerOre("blockTestSolidBlock", solidTestBlock);
 
         // Register WIP items only on development runs!
         if (isDevelopmentRun()) {
